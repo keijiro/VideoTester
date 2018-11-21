@@ -12,7 +12,11 @@
         float t = _FrameCount / 60.0f;
         int c20 = (_FrameCount + 5) % 20;
         int c60 = (_FrameCount + 5) % 60;
+#if ENABLE_FLASH
         return (c60 < 2 || c20 < 1) ^ (uv.x < frac(t));
+#else
+        return (uv.x < frac(t));
+#endif
     }
 
     ENDCG

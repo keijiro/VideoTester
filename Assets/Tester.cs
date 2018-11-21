@@ -8,6 +8,13 @@ public class Tester : MonoBehaviour
 
     Material _material;
 
+    void Start()
+    {
+    #if UNITY_IOS
+        Application.targetFrameRate = 60;
+    #endif
+    }
+
     void Update()
     {
         _text.text = Time.frameCount.ToString("000000");
